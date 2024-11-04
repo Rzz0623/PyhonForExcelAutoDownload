@@ -1,5 +1,5 @@
 # PyhonForExcelAutoDownload
-ExcelAutoDownload
+⚠️⚠️This is a program specially designed for the National Chinese Surf Life Saving Association⚠️⚠️
 
 ● Automatically download specified documents from Google Drive based on Excel data.  
 
