@@ -24,7 +24,7 @@ class PrintRedirector:
         self.text_widget.see(tk.END)
 
     def flush(self):
-        pass  # 這裡可以留空
+        pass 
 
 def get_api():
     try:
