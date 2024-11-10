@@ -24,7 +24,7 @@ class PrintRedirector:
         self.text_widget.see(tk.END)
 
     def flush(self):
-        pass 
+        pass  # 這裡可以留空
 
 def get_api():
     try:
@@ -80,10 +80,12 @@ def pdf2jpg(folder_name):
                     if file.endswith(".pdf"):
                         pdf_path = os.path.join(root_dir, file)
                         images = convert_from_path(pdf_path)
-                        for i, image in enumerate(images):
-                            jpg_path = os.path.join(root_dir, f"{file[:-4]}.jpg")
+                        for i, image in enumerate(images, start=1):  # start=1 for page numbering
+                            # 使用編號_檔案名稱_頁碼.jpg 格式
+                            jpg_path = os.path.join(root_dir, f"{file[:-6]}_{i}.jpg")
                             image.save(jpg_path, 'JPEG')
-                            print(f"{file}已轉換成jpg檔案")
+                            print(f"{file} 第 {i} 頁已轉換成 jpg 檔案")
+                        # 刪除原始 PDF
                         os.remove(pdf_path)
         except Exception as e:
             messagebox.showerror("錯誤", f"執行發生錯誤：{e}")
